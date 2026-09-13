@@ -1,0 +1,378 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday Sunayna ❤️</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ========================================= -->
+    <!-- BACKGROUND EFFECTS -->
+    <!-- ========================================= -->
+
+    <canvas id="fireworksCanvas"></canvas>
+
+    <div id="confettiContainer"></div>
+    <div id="heartsContainer"></div>
+
+
+    <!-- ========================================= -->
+    <!-- BIRTHDAY MUSIC -->
+    <!-- ========================================= -->
+
+    <audio id="birthdayMusic" loop>
+        <source src="happy.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <!-- ========================================= -->
+    <!-- FLOATING BALLOONS -->
+    <!-- ========================================= -->
+
+    <div class="balloons">
+
+        <span>🎈</span>
+        <span>🎈</span>
+        <span>🎈</span>
+        <span>🎈</span>
+        <span>🎈</span>
+        <span>🎈</span>
+
+    </div>
+
+
+    <!-- ========================================= -->
+    <!-- DECORATIVE HEARTS -->
+    <!-- ========================================= -->
+
+    <div class="top-hearts">
+        ❤️ 💕 💖 💗 ❤️
+    </div>
+
+
+    <main>
+
+
+        <!-- ========================================= -->
+        <!-- WELCOME SECTION -->
+        <!-- ========================================= -->
+
+        <section class="welcome" id="welcome">
+
+            <div class="premium-badge">
+                ✨ A SPECIAL SURPRISE ✨
+            </div>
+
+            <div class="cake">
+                🎂
+            </div>
+
+            <p class="small-title">
+                Today is your special day
+            </p>
+
+            <h1>
+                Happy Birthday
+            </h1>
+
+            <h2>
+                Sunayna <span>❤️</span>
+            </h2>
+
+            <p class="intro">
+                I made something special just for you...<br>
+                Get ready for a little birthday magic! 🎁✨
+            </p>
+
+            <button
+                class="main-button"
+                onclick="startBirthday()"
+            >
+                Start My Surprise 🎁
+            </button>
+
+            <div class="welcome-stars">
+                ✦ ✧ ✦ ✧ ✦
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================= -->
+        <!-- SURPRISE JOURNEY -->
+        <!-- ========================================= -->
+
+        <section
+            class="surprise hidden"
+            id="surprise"
+        >
+
+            <!-- PROGRESS -->
+
+            <div class="progress-wrapper">
+
+                <div class="progress">
+
+                    <div id="progressBar"></div>
+
+                </div>
+
+                <p id="stepNumber">
+                    Step 1 of 13
+                </p>
+
+            </div>
+
+
+
+            <!-- MAIN CARD -->
+
+            <div class="card">
+
+                <div class="card-glow"></div>
+
+
+                <!-- STEP ICON -->
+
+                <div
+                    class="step-icon"
+                    id="stepIcon"
+                >
+                    💌
+                </div>
+
+
+                <!-- STEP TITLE -->
+
+                <h2 id="stepTitle">
+                    A Special Message
+                </h2>
+
+
+                <!-- STEP TEXT -->
+
+                <p id="stepText">
+                    Your birthday journey starts here... ❤️
+                </p>
+
+
+
+                <!-- ================================= -->
+                <!-- TYPING MESSAGE -->
+                <!-- ================================= -->
+
+                <div
+                    class="typing-box hidden"
+                    id="typingBox"
+                >
+
+                    <span id="typingText"></span>
+
+                    <span class="cursor">
+                        |
+                    </span>
+
+                </div>
+
+
+
+                <!-- ================================= -->
+                <!-- PHOTO MEMORY SECTION -->
+                <!-- ================================= -->
+
+                <div
+                    class="photo-box hidden"
+                    id="photoBox"
+                >
+
+                    <div class="photo-frame">
+
+                        <div class="photo-shine"></div>
+
+                        <img
+                            id="birthdayPhoto"
+                            src=""
+                            alt="Birthday Memory"
+                        >
+
+                    </div>
+
+
+                    <div
+                        class="photo-caption"
+                        id="photoCaption"
+                    >
+                        ❤️ A beautiful memory ❤️
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================================= -->
+                <!-- BIG CAKE -->
+                <!-- ================================= -->
+
+                <div
+                    class="big-cake hidden"
+                    id="bigCake"
+                >
+
+                    <div class="cake-emoji">
+                        🎂
+                    </div>
+
+                    <div class="candles">
+                        🕯️ 🕯️ 🕯️
+                    </div>
+
+                    <p>
+                        Make a wish! ✨
+                    </p>
+
+                </div>
+
+
+
+                <!-- ================================= -->
+                <!-- NEXT BUTTON -->
+                <!-- ================================= -->
+
+                <button
+                    class="next-button"
+                    id="nextButton"
+                    onclick="nextStep()"
+                >
+                    Next Surprise ❤️
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================= -->
+        <!-- FINAL BIRTHDAY SECTION -->
+        <!-- ========================================= -->
+
+        <section
+            class="final hidden"
+            id="final"
+        >
+
+            <div class="final-glow"></div>
+
+
+            <div class="final-cake">
+                🎂
+            </div>
+
+
+            <div class="final-badge">
+                🎉 THE BIG SURPRISE 🎉
+            </div>
+
+
+            <h1>
+                Happy Birthday Sunayna!
+            </h1>
+
+
+            <!-- FINAL TYPING -->
+
+            <div class="typing-final">
+
+                <p id="finalTypingText"></p>
+
+                <span class="cursor">
+                    |
+                </span>
+
+            </div>
+
+
+            <!-- FINAL MESSAGE -->
+
+            <div class="final-message">
+
+                <span class="quote-mark">
+                    “
+                </span>
+
+                You are truly special! 💖<br>
+
+                May every moment of your life<br>
+
+                be filled with happiness, success,<br>
+
+                love and beautiful memories. ✨
+
+                <span class="quote-mark right">
+                    ”
+                </span>
+
+            </div>
+
+
+
+            <!-- ================================= -->
+            <!-- FINAL BUTTONS -->
+            <!-- ================================= -->
+
+            <div class="final-actions">
+
+                <button
+                    class="share-button"
+                    onclick="shareBirthday()"
+                >
+                    📤 Share Birthday Wish
+                </button>
+
+
+                <button
+                    class="replay-button"
+                    onclick="restartBirthday()"
+                >
+                    🔄 Watch Again
+                </button>
+
+            </div>
+
+
+            <!-- SHARE STATUS -->
+
+            <div
+                class="share-status"
+                id="shareStatus"
+            ></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ========================================= -->
+    <!-- SCRIPT -->
+    <!-- ========================================= -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+```
